@@ -1,0 +1,30 @@
+[package]
+name = "ziman/lightyear"
+version = "0.1.0"
+authors = ["Matúš Tejiščák <ziman@centrum.sk>"]
+
+[dependencies]
+
+[targets.lib]
+path = "."
+mods = [
+  "Lightyear",
+  "Lightyear.Position",
+  "Lightyear.Core",
+  "Lightyear.Combinators",
+  "Lightyear.StringFile",
+  "Lightyear.Strings",
+  "Lightyear.Char",
+  "Lightyear.Testing",
+]
+idris_opts = ["-p", "effects"]
+
+[[targets.test]]
+name = "json_tests"
+main = "tests/JsonTest.jsonTests"
+idris_opts = ["-p", "contrib"]
+
+[[targets.test]]
+name = "tests"
+main = "tests/Test.tests"
+idris_opts = ["-p", "contrib"]
